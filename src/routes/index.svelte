@@ -26,14 +26,18 @@
 	};
 </script>
 
-<div id="index" class="ml-4">
-	<h1 class="text-3xl font-bold">inbox</h1>
-	<ul>
+<div class="p-2">
+	<h1 class="p-4 text-xl font-bold">inbox</h1>
+	<ul class="my-2">
 		{#each todos as todo (todo.uid)}
-			<li class="mb-2">
+			<li>
 				<TodoItem {todo} on:click={removeFromList(todo.uid)} />
 			</li>
+			<div class="divider my-1" />
 		{/each}
 	</ul>
-	<input type="text" class="border border-slate-600" on:change={handleChange} />
+	<div class="flex gap-2">
+		<p>Add Todo:</p>
+		<input type="text" class="input input-bordered input-sm" on:change={handleChange} />
+	</div>
 </div>

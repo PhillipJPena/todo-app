@@ -4,4 +4,5 @@ export class Todo {
 		this.description = description;
 	}
 	uid = Math.random();
+	checked = false;
 }

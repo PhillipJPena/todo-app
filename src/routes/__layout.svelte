@@ -2,7 +2,7 @@
 	import '../app.css';
 </script>
 
-<header class="bg-blue-400">
-	<h1 class="text-white">Todo List</h1>
+<header>
+	<h1 class="bg-neutral p-2 text-2xl font-bold">Todo List</h1>
 </header>
 <slot />
