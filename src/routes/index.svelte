@@ -1,12 +1,13 @@
 <script>
 	import { Todo } from './../lib/classes/todo.js';
 	import TodoItem from '../lib/components/TodoItem.svelte';
+	import AddTodoForm from '../lib/components/AddTodoForm.svelte';
 
 	let todos = [
-		new Todo('cat', 'meow'),
-		new Todo('dog', 'woof'),
-		new Todo('duck', 'quack'),
-		new Todo('cow', 'moo')
+		new Todo({ text: 'cat', description: 'meow' }),
+		new Todo({ text: 'dog', description: 'woof' }),
+		new Todo({ text: 'duck', description: 'quack' }),
+		new Todo({ text: 'cow', description: 'moo' })
 	];
 
 	//when text input is submitted
@@ -24,10 +25,23 @@
 		todos.splice(index, 1);
 		todos = todos;
 	};
+
+	const handleSubmit = (e) => {
+		const formData = new FormData(e.target);
+		const data = {};
+
+		for (let field of formData) {
+			const [key, value] = field;
+			data[key] = value;
+		}
+
+		todos = [...todos, new Todo(data)];
+		e.target.reset();
+	};
 </script>
 
 <div class="p-2">
-	<h1 class="p-4 text-xl font-bold">inbox</h1>
+	<h1 class="p-4 text-xl font-bold">Inbox</h1>
 	<ul class="my-2">
 		{#each todos as todo (todo.uid)}
 			<li>
@@ -36,8 +50,6 @@
 			<div class="divider my-1" />
 		{/each}
 	</ul>
-	<div class="flex gap-2">
-		<p>Add Todo:</p>
-		<input type="text" class="input input-bordered input-sm" on:change={handleChange} />
-	</div>
+
+	<AddTodoForm on:submit={handleSubmit} />
 </div>
