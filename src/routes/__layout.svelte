@@ -1,5 +1,6 @@
 <script>
 	import Appbar from '$lib/components/Appbar.svelte';
+	import { isSidebarOpen } from '$lib/stores/sidebar.js';
 	import { tweened } from 'svelte/motion';
 	import { linear } from 'svelte/easing';
 	import '../app.css';
@@ -7,7 +8,6 @@
 	//width in px
 	const SIDEBAR_OPEN_WIDTH = 240;
 	const SIDEBAR_CLOSED_WIDTH = 0;
-	let isSidebarOpen = false;
 
 	const sidebarWidth = tweened(0, {
 		duration: 200,
@@ -15,16 +15,17 @@
 	});
 
 	const toggleSidebar = () => {
-		isSidebarOpen = !isSidebarOpen;
-		return isSidebarOpen
+		$isSidebarOpen = !$isSidebarOpen;
+
+		return $isSidebarOpen
 			? sidebarWidth.set(SIDEBAR_OPEN_WIDTH)
 			: sidebarWidth.set(SIDEBAR_CLOSED_WIDTH);
 	};
 </script>
 
-<Appbar on:click={toggleSidebar} />
+<Appbar on:click={toggleSidebar} {$isSidebarOpen} />
 <div class="flex h-full">
-	{#if isSidebarOpen}
+	{#if $isSidebarOpen}
 		<div class="absolute h-full w-full bg-black opacity-50 sm:hidden" on:click={toggleSidebar} />
 	{/if}
 	<div
