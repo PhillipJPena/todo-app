@@ -36,7 +36,7 @@
 				<span class="label-text">Priority</span>
 				<span class="label-text-alt">*optional</span>
 			</label>
-			<div class="mt-1  flex gap-4">
+			<div class="mt-1  flex gap-2">
 				<label for="low-priority" class="label-text-alt">low</label>
 				<input
 					type="radio"

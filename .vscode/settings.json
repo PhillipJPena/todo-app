@@ -1,0 +1,6 @@
+{
+	"svelte.plugin.svelte.format.config.svelteSortOrder": "options-markup-scripts-styles",
+	"svelte.plugin.svelte.format.config.svelteAllowShorthand": true,
+	"svelte.plugin.svelte.format.config.singleQuote": true,
+	"svelte.plugin.svelte.format.config.svelteBracketNewLine": false
+}

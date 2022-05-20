@@ -40,7 +40,7 @@
 	};
 </script>
 
-<div class="p-2">
+<div class="p-4">
 	<h1 class="p-4 text-xl font-bold">Inbox</h1>
 	<ul class="my-2">
 		{#each todos as todo (todo.uid)}
