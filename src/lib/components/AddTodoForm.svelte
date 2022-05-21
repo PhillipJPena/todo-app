@@ -1,12 +1,15 @@
 <script>
+	let hidden = true;
 </script>
 
-<form
-	class="form-control max-w-2xl rounded-xl border border-slate-600 py-2 px-4"
-	on:submit|preventDefault
->
+{#if hidden}
+	<button class="btn btn-outline btn-accent normal-case" on:click={() => (hidden = !hidden)}
+		>New Todo</button
+	>
+{/if}
+<div class="form-control  rounded-xl border border-slate-600 py-2 px-4" class:hidden>
 	<label for="text" class="label">
-		<span class="label-text text-lg font-semibold">Add Todo</span>
+		<span class="label-text ">Todo</span>
 	</label>
 	<input type="text" name="text" id="text" class="input input-bordered input-sm" />
 
@@ -22,47 +25,44 @@
 		class="textarea textarea-bordered"
 	/>
 
-	<div class="flex gap-8">
-		<div class="flex flex-col">
-			<label for="dueDate" class="label">
-				<span class="label-text">Due Date</span>
-				<span class="label-text-alt ">*optional</span>
-			</label>
-			<input type="date" name="dueDate" id="dueDate" class="input input-bordered input-sm" />
-		</div>
+	<label for="project" class="label">
+		<span class="label-text">Project</span>
+		<span class="label-text-alt ">*optional</span>
+	</label>
 
-		<div>
-			<label for="priority" class="label">
-				<span class="label-text">Priority</span>
-				<span class="label-text-alt">*optional</span>
-			</label>
-			<div class="mt-1  flex gap-2">
-				<label for="low-priority" class="label-text-alt">low</label>
-				<input
-					type="radio"
-					name="priority"
-					id="low-priority"
-					value="low"
-					class="radio checked:bg-yellow-500"
-				/>
-				<label for="med-priority" class="label-text-alt">medium</label>
-				<input
-					type="radio"
-					name="priority"
-					id="med-priority"
-					value="medium"
-					class="radio checked:bg-orange-500"
-				/>
-				<label for="high-priority" class="label-text-alt">high</label>
-				<input
-					type="radio"
-					name="priority"
-					id="high-priority"
-					value="high"
-					class="radio checked:bg-red-500"
-				/>
-			</div>
-		</div>
+	<select name="project" id="project" class="select select-bordered select-sm w-full max-w-xs">
+		<option>Normal Apple</option>
+		<option>Normal Orange</option>
+		<option>Normal Tomato</option>
+	</select>
+
+	<label for="dueDate " class="label">
+		<span class="label-text">Due Date</span>
+		<span class="label-text-alt ">*optional</span>
+	</label>
+	<input type="date max-w-xs" name="dueDate" id="dueDate" class="input input-bordered input-sm" />
+
+	<div class="label max-w-[260px]">
+		<span class="label-text">Priority</span>
+		<span class="label-text-alt ">*optional</span>
 	</div>
-	<input type="submit" value="Submit" class="btn my-4 place-self-start" />
-</form>
+
+	<div class="flex ">
+		<label for="low-priority" class="btn btn-ghost btn-sm">
+			<span class="normal-case">Low</span>
+			<input type="radio" name="priority" id="low-priority" value="low" class="radio ml-2" />
+		</label>
+		<label for="med-priority" class="btn btn-ghost btn-sm">
+			<span class="normal-case">Med</span>
+			<input type="radio" name="priority" id="med-priority" value="medium" class="radio ml-2" />
+		</label>
+		<label for="high-priority" class="btn btn-ghost btn-sm">
+			<span class="normal-case">High</span>
+			<input type="radio" name="priority" id="high-priority" value="high" class="radio ml-2" />
+		</label>
+	</div>
+	<div class="my-4">
+		<input type="submit" value="Add Todo" class="btn btn-accent normal-case" />
+		<button class="btn btn-outline normal-case" on:click={() => (hidden = !hidden)}>Cancel</button>
+	</div>
+</div>
