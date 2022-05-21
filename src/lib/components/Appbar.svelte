@@ -5,7 +5,7 @@
 
 <div class="navbar  bg-base-300">
 	<p class="navbar-start">
-		<button class="btn btn-square" on:click>
+		<button class="btn btn-square" on:click={() => ($isSidebarOpen = !$isSidebarOpen)}>
 			{#if $isSidebarOpen}
 				<Icon icon="pixelarticons:backburger" height="24" />
 			{:else}
