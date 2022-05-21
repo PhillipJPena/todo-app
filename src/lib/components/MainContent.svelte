@@ -35,14 +35,11 @@
 </script>
 
 <div class="flex flex-1 justify-center">
-	<div class="p-4">
-		<h1 class="p-4 text-xl font-bold">Inbox</h1>
-		<ul class="my-2">
+	<div class="max-w-4xl flex-1 p-4">
+		<h1 class="p-4 text-3xl font-bold">Inbox</h1>
+		<ul class="my-2 flex-1 divide-y divide-slate-600">
 			{#each $todos as todo (todo.uid)}
-				<li>
-					<TodoItem {todo} on:click={removeFromList(todo.uid)} />
-				</li>
-				<div class="divider my-1" />
+				<TodoItem {todo} />
 			{/each}
 		</ul>
 		<AddTodoForm on:submit={handleSubmit} />
