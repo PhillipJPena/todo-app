@@ -23,7 +23,17 @@
 	};
 </script>
 
-<Appbar on:click={toggleSidebar} {$isSidebarOpen} />
+<svelte:window
+	on:resize={() => {
+		if (innerWidth > 640 && !$isSidebarOpen) {
+			return toggleSidebar();
+		} else if (innerWidth <= 640 && $isSidebarOpen) {
+			return toggleSidebar();
+		}
+	}}
+/>
+
+<Appbar on:click={toggleSidebar} />
 <div class="flex h-full">
 	{#if $isSidebarOpen}
 		<div class="absolute h-full w-full bg-black opacity-50 sm:hidden" on:click={toggleSidebar} />

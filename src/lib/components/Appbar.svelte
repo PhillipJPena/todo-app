@@ -13,6 +13,6 @@
 			{/if}
 		</button>
 	</p>
-	<p class="navbar-center text-2xl font-bold">Todo</p>
-	<p class="navbar-end">goodbye</p>
+	<p class="navbar-center text-2xl font-bold">TodoList</p>
+	<p class="navbar-end">space</p>
 </div>

@@ -15,14 +15,20 @@
 			<input type="text" bind:value={todo.text} on:change={updateTodo} />
 			<input type="text" bind:value={todo.description} on:change={updateTodo} />
 		{:else}
-			<p on:dblclick={() => (editEnabled = true)}>{todo.text}</p>
-			<p on:dblclick={() => (editEnabled = true)}>{todo.description}</p>
-			{#if todo.dueDate}
-				<p on:dblclick={() => (editEnabled = true)}>due: {todo.dueDate}</p>
-			{/if}
-			{#if todo.priority}
-				<p on:dblclick={() => (editEnabled = true)}>priority: {todo.priority}</p>
-			{/if}
+			<div>
+				<p on:dblclick={() => (editEnabled = true)}>{todo.text}</p>
+				<p class="text-xs" on:dblclick={() => (editEnabled = true)}>{todo.description}</p>
+				<div class="flex gap-4">
+					{#if todo.dueDate}
+						<p class="text-xs" on:dblclick={() => (editEnabled = true)}>due: {todo.dueDate}</p>
+					{/if}
+					{#if todo.priority}
+						<p class="text-xs" on:dblclick={() => (editEnabled = true)}>
+							priority: {todo.priority}
+						</p>
+					{/if}
+				</div>
+			</div>
 		{/if}
 	</div>
 	<div>
