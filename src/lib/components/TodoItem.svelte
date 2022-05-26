@@ -8,11 +8,17 @@
 		<input type="checkbox" class="checkbox checkbox-accent mt-2" />
 		<div id="todoContent" class="flex flex-col gap-1">
 			<p class="text-lg font-medium">{todo.text}</p>
-			<p class="text-sm">{todo.description}</p>
+			{#if todo.description}
+				<p class="text-sm">{todo.description}</p>
+			{/if}
 			<div id="todoData" class="flex gap-4">
-				<p class="text-sm">{todo.date}</p>
-				<p class="text-sm">{todo.priority}</p>
 				<p class="text-sm">{todo.project}</p>
+				{#if todo.dueDate}
+					<p class="text-sm">due: {todo.dueDate}</p>
+				{/if}
+				{#if todo.priority}
+					<p class="text-sm">priority: {todo.priority}</p>
+				{/if}
 			</div>
 		</div>
 	</div>

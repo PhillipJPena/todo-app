@@ -26,9 +26,6 @@
 			setTimeout(() => ($isSidebarOpen = false), 150);
 		}
 	}}
-	on:keydown={(e) => {
-		if (e.key === 'm') $isSidebarOpen = !$isSidebarOpen;
-	}}
 />
 
 {#if $isSidebarOpen}
