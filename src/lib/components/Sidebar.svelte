@@ -30,7 +30,7 @@
 
 {#if $isSidebarOpen}
 	<div
-		class="absolute h-full w-full bg-black opacity-40 sm:hidden"
+		class="top-0~ fixed h-full w-full bg-black opacity-40 sm:hidden"
 		on:click={() => ($isSidebarOpen = !$isSidebarOpen)}
 	/>
 {/if}

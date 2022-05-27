@@ -18,12 +18,13 @@
 </script>
 
 {#if hidden}
-	<button class="btn btn-outline btn-accent normal-case" on:click={() => (hidden = !hidden)}
-		>New Todo</button
+	<button
+		class="btn btn-outline btn-accent btn-block my-6 normal-case"
+		on:click={() => (hidden = !hidden)}>New Todo</button
 	>
 {/if}
 <form
-	class="form-control rounded-xl border border-slate-600 py-2 px-4"
+	class="form-control my-6 rounded-xl border border-slate-600 py-2 px-4"
 	class:hidden
 	on:submit|preventDefault={handleSubmit}
 >

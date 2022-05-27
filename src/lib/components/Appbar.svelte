@@ -3,7 +3,7 @@
 	import Icon from '@iconify/svelte';
 </script>
 
-<div class="navbar  bg-base-300">
+<div class="navbar sticky top-0 z-50 bg-base-300">
 	<p class="navbar-start">
 		<button class="btn btn-square" on:click={() => ($isSidebarOpen = !$isSidebarOpen)}>
 			{#if $isSidebarOpen}

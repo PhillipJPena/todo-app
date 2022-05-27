@@ -22,7 +22,7 @@
 			</div>
 		</div>
 	</div>
-	<button class="btn btn-ghost btn-square btn-sm">
+	<button class="btn btn-ghost btn-square btn-sm" on:click>
 		<Icon icon="simple-line-icons:options" height="24" />
 	</button>
 </li>
